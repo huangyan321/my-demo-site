@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <h1>Demo~1</h1>
+    <router-link to="/home">到home</router-link>
+    <router-view />
   </div>
 </template>
 
