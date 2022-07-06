@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: 'Hello World',
+  name: 'HelloWorld',
   components: {},
   // directives: {},
   // filters: {},
