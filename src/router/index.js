@@ -4,7 +4,8 @@ import Layout from '@/layout';
 Vue.use(Router);
 
 const Dashboard = () => import('@/views/Dashboard');
-const Sandbox = () => import('@/views/sandbox');
+const Sandbox = () => import('@/views/tool/sandbox');
+const LifeCycle = () => import('@/views/vue/lifecycle');
 const routes = [
   {
     path: '/',
@@ -29,7 +30,6 @@ const routes = [
   {
     path: '/tool',
     name: 'Tool',
-    redirect: '/about',
     component: Layout,
     meta: {
       title: '测试工具',
@@ -42,6 +42,34 @@ const routes = [
         component: Sandbox,
         meta: {
           title: '沙盒',
+          icon: 'el-icon-user',
+        },
+      },
+      {
+        path: 'about',
+        component: Dashboard,
+        meta: {
+          title: '测试about2',
+          icon: 'el-icon-user',
+        },
+      },
+    ],
+  },
+  {
+    path: '/vue',
+    name: 'Vue',
+    component: Layout,
+    meta: {
+      title: 'vue相关',
+      icon: 'el-icon-user',
+      cache: true,
+    },
+    children: [
+      {
+        path: 'lifeCycle',
+        component: LifeCycle,
+        meta: {
+          title: '生命周期',
           icon: 'el-icon-user',
         },
       },
