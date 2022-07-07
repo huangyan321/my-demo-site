@@ -9,7 +9,7 @@ const LifeCycle = () => import('@/views/vue/lifecycle');
 const routes = [
   {
     path: '/',
-    name: 'Dashboard',
+    name: 'dashboard',
     redirect: '/dashboard',
     component: Layout,
     meta: {
@@ -21,7 +21,7 @@ const routes = [
         path: 'dashboard',
         component: Dashboard,
         meta: {
-          title: 'Dashboard',
+          title: 'dashboard',
           icon: 'el-icon-user',
         },
       },
