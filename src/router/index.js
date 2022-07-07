@@ -4,7 +4,7 @@ import Layout from '@/layout';
 Vue.use(Router);
 
 const Dashboard = () => import('@/views/Dashboard');
-const About = () => import('@/views/about');
+const Sandbox = () => import('@/views/sandbox');
 const routes = [
   {
     path: '/',
@@ -20,27 +20,28 @@ const routes = [
         path: 'dashboard',
         component: Dashboard,
         meta: {
-          title: '测试dashboard',
+          title: 'Dashboard',
           icon: 'el-icon-user',
         },
       },
     ],
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/tool',
+    name: 'Tool',
     redirect: '/about',
     component: Layout,
     meta: {
-      title: '测试about1',
+      title: '测试工具',
       icon: 'el-icon-user',
+      cache: true,
     },
     children: [
       {
-        path: 'index',
-        component: About,
+        path: 'sandbox',
+        component: Sandbox,
         meta: {
-          title: '测试about1',
+          title: '沙盒',
           icon: 'el-icon-user',
         },
       },
