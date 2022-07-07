@@ -1,20 +1,15 @@
 <template>
-  <div>Hello,{{ msg }}</div>
+  <div><h1>about</h1></div>
 </template>
 <script>
 export default {
-  name: 'HelloWorld',
+  name: '',
   components: {},
   // directives: {},
   // filters: {},
   // extends: {},
   // mixins: {},
-  props: {
-    msg: {
-      type: String,
-      default: '',
-    },
-  },
+  props: {},
   data() {
     return {};
   },
