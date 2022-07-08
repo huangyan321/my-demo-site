@@ -6,6 +6,8 @@ Vue.use(Router);
 const Dashboard = () => import('@/views/Dashboard');
 const Sandbox = () => import('@/views/tool/sandbox');
 const LifeCycle = () => import('@/views/vue/lifecycle');
+const LinkedList = () =>
+  import('@/views/data-structures-and-algorithms/linked-list');
 const routes = [
   {
     path: '/',
@@ -70,6 +72,34 @@ const routes = [
         component: LifeCycle,
         meta: {
           title: '生命周期',
+          icon: 'el-icon-user',
+        },
+      },
+      {
+        path: 'about',
+        component: Dashboard,
+        meta: {
+          title: '测试about2',
+          icon: 'el-icon-user',
+        },
+      },
+    ],
+  },
+  {
+    path: '/data-structures-and-algorithms',
+    name: 'Vue',
+    component: Layout,
+    meta: {
+      title: '数据结构与算法',
+      icon: 'el-icon-user',
+      cache: true,
+    },
+    children: [
+      {
+        path: 'linkedList',
+        component: LinkedList,
+        meta: {
+          title: '链表',
           icon: 'el-icon-user',
         },
       },
