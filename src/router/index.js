@@ -4,11 +4,7 @@ import Layout from '@/layout';
 Vue.use(Router);
 
 const Dashboard = () => import('@/views/Dashboard');
-const Sandbox = () => import('@/views/tool/sandbox');
-const LifeCycle = () => import('@/views/vue/lifecycle');
-const LinkedList = () =>
-  import('@/views/data-structures-and-algorithms/linked-list');
-const routes = [
+let routes = [
   {
     path: '/',
     name: 'dashboard',
@@ -29,91 +25,18 @@ const routes = [
       },
     ],
   },
-  {
-    path: '/tool',
-    name: 'Tool',
-    component: Layout,
-    meta: {
-      title: '测试工具',
-      icon: 'el-icon-user',
-      cache: true,
-    },
-    children: [
-      {
-        path: 'sandbox',
-        component: Sandbox,
-        meta: {
-          title: '沙盒',
-          icon: 'el-icon-user',
-        },
-      },
-      {
-        path: 'about',
-        component: Dashboard,
-        meta: {
-          title: '测试about2',
-          icon: 'el-icon-user',
-        },
-      },
-    ],
-  },
-  {
-    path: '/vue',
-    name: 'Vue',
-    component: Layout,
-    meta: {
-      title: 'vue相关',
-      icon: 'el-icon-user',
-      cache: true,
-    },
-    children: [
-      {
-        path: 'lifeCycle',
-        component: LifeCycle,
-        meta: {
-          title: '生命周期',
-          icon: 'el-icon-user',
-        },
-      },
-      {
-        path: 'about',
-        component: Dashboard,
-        meta: {
-          title: '测试about2',
-          icon: 'el-icon-user',
-        },
-      },
-    ],
-  },
-  {
-    path: '/data-structures-and-algorithms',
-    name: 'Vue',
-    component: Layout,
-    meta: {
-      title: '数据结构与算法',
-      icon: 'el-icon-user',
-      cache: true,
-    },
-    children: [
-      {
-        path: 'linkedList',
-        component: LinkedList,
-        meta: {
-          title: '链表',
-          icon: 'el-icon-user',
-        },
-      },
-      {
-        path: 'about',
-        component: Dashboard,
-        meta: {
-          title: '测试about2',
-          icon: 'el-icon-user',
-        },
-      },
-    ],
-  },
 ];
+
+// 自动加载 global 目录下的 .js 结尾的文件
+const routerContext = require.context('./modules', true, /\.js$/);
+
+routerContext.keys().forEach((route) => {
+  /**
+   * 兼容 import export 和 require module.export 两种规范
+   */
+  const routerModule = routerContext(route);
+  routes = [...routes, ...(routerModule.default || routerModule)];
+});
 
 const createRouter = () =>
   new Router({

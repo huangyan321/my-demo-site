@@ -75,7 +75,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .grap {
-  width: 500px;
+  width: 70vw;
   height: 300px;
   overflow: hidden;
   overflow-x: auto;
