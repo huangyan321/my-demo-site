@@ -1,6 +1,6 @@
 import Layout from '@/layout';
 const LifeCycle = () => import('@/views/vue/lifecycle');
-const Dashboard = () => import('@/views/Dashboard');
+const Api = () => import('@/views/vue/api');
 export default [
   {
     path: '/vue',
@@ -13,7 +13,7 @@ export default [
     },
     children: [
       {
-        path: 'lifeCycle',
+        path: 'life-cycle',
         component: LifeCycle,
         meta: {
           title: '生命周期',
@@ -21,10 +21,10 @@ export default [
         },
       },
       {
-        path: 'about',
-        component: Dashboard,
+        path: 'extend',
+        component: Api,
         meta: {
-          title: '测试about2',
+          title: 'extendApi测试',
           icon: 'el-icon-user',
         },
       },

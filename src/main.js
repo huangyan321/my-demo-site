@@ -7,6 +7,8 @@ import 'normalize.css/normalize.css'; // a modern alternative to CSS resets
 import 'element-ui/lib/theme-chalk/index.css';
 import '@/components';
 import elementUI from 'element-ui';
+import { MessageBox } from '@/components';
+Vue.use(MessageBox);
 Vue.config.productionTip = false;
 Vue.use(elementUI);
 new Vue({

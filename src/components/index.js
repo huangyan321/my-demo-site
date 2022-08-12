@@ -12,3 +12,5 @@
 //   const ctrl = componentConfig.default || componentConfig
 //   Vue.component(ctrl.name, ctrl)
 // })
+import MessageBox from './common/MessageBox';
+export { MessageBox };
