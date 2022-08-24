@@ -90,6 +90,9 @@ export default {
       display: flex;
       justify-content: space-between;
     }
+    .close {
+      cursor: pointer;
+    }
     .content {
       padding: 15px;
     }
